@@ -1,8 +1,13 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from gp.gp_model import GaussianProcess
 from gp.kernels import RBF_kernel, Matern_kernel, RationalQuadratic_kernel, Periodic_kernel
 from gp.utils import animate_gp
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+path = os.path.join(BASE_DIR, "..", "outputs", "gp_animation.mp4")
 
 
 # Iterate through training data points example
@@ -23,4 +28,4 @@ kernel = RBF_kernel()
 # kernel = RationalQuadratic_kernel(alpha=1.0)
 # kernel = Periodic_kernel(w=2*np.pi)
 
-animate_gp(X_train, y_train, X_s, Y_s, kernel, n, save=False, path="../outputs/gp_animation.gif")
+animate_gp(X_train, y_train, X_s, Y_s, kernel, n, save=True, path=path)

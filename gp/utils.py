@@ -98,7 +98,7 @@ def animate_gp(X_train, y_train, X_s, Y_s, kernel, n, save=False, path="gp_anima
     anim = FuncAnimation(fig, update, frames=range(n), init_func=init, blit=False, repeat=False)
 
     if save:
-        anim.save(path, fps=2, dpi=150)
+        anim.save(path, writer="ffmpeg", fps=2, dpi=150)
 
     if show:
         plt.show()
